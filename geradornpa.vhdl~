@@ -1,0 +1,28 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL; 
+use IEEE.STD_LOGIC_UNSIGNED.ALL; 
+
+entity LFSR is
+	Port ( clk : in STD_LOGIC;
+	       rst : in STD_LOGIC; 
+	       lfsr_state : in STD_LOGIC_VECTOR(7 downto 0) := "00000001"; 
+	       lfsr_out : out STD_LOGIC_VECTOR(7 downto 0);
+	       vdd : in STD_LOGIC; 
+	       vss : in STD_LOGIC );
+end LFSR; 
+
+
+architecture Behavioral of LFSR is 
+	signal XOR_result : STD_LOGIC; 
+	signal clk_borda : bit;
+begin 
+	process (clk, rst)
+	begin 
+		if rising_edge(clk) then 
+			XOR_result <= lfsr_state(7) xor lfsr_state(5) 
+			xor lfsr_state(4) xor lfsr_state(3);
+            lfsr_out <= XOR_result & lfsr_state(7 downto 1); 
+		end if;
+	end process; 
+end Behavioral;

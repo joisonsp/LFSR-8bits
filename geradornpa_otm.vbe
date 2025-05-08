@@ -1,0 +1,79 @@
+-- VHDL data flow description generated from `geradornpa_otm`
+--		date : Thu May  8 10:08:07 2025
+
+
+-- Entity Declaration
+
+ENTITY geradornpa_otm IS
+  PORT (
+  clk : in BIT;	-- clk
+  rst : in BIT;	-- rst
+  lfsr_state : in bit_vector(7 DOWNTO 0) ;	-- lfsr_state
+  lfsr_out : out bit_vector(7 DOWNTO 0) ;	-- lfsr_out
+  vdd : in BIT;	-- vdd
+  vss : in BIT	-- vss
+  );
+END geradornpa_otm;
+
+
+-- Architecture Declaration
+
+ARCHITECTURE behaviour_data_flow OF geradornpa_otm IS
+  SIGNAL rtlalc_0 : REG_VECTOR(7 DOWNTO 0) REGISTER;	-- rtlalc_0
+  SIGNAL xor_result : REG_BIT REGISTER;	-- xor_result
+
+BEGIN
+  label0 : BLOCK ((NOT((clk'STABLE)) AND clk) = '1')
+  BEGIN
+    xor_result <= GUARDED (lfsr_state(7) XOR lfsr_state(3) XOR 
+lfsr_state(5) XOR lfsr_state(4));
+  END BLOCK label0;
+  label1 : BLOCK ((NOT((clk'STABLE)) AND clk) = '1')
+  BEGIN
+    rtlalc_0 (0) <= GUARDED lfsr_state(1);
+  END BLOCK label1;
+  label2 : BLOCK ((NOT((clk'STABLE)) AND clk) = '1')
+  BEGIN
+    rtlalc_0 (1) <= GUARDED lfsr_state(2);
+  END BLOCK label2;
+  label3 : BLOCK ((NOT((clk'STABLE)) AND clk) = '1')
+  BEGIN
+    rtlalc_0 (2) <= GUARDED lfsr_state(3);
+  END BLOCK label3;
+  label4 : BLOCK ((NOT((clk'STABLE)) AND clk) = '1')
+  BEGIN
+    rtlalc_0 (3) <= GUARDED lfsr_state(4);
+  END BLOCK label4;
+  label5 : BLOCK ((NOT((clk'STABLE)) AND clk) = '1')
+  BEGIN
+    rtlalc_0 (4) <= GUARDED lfsr_state(5);
+  END BLOCK label5;
+  label6 : BLOCK ((NOT((clk'STABLE)) AND clk) = '1')
+  BEGIN
+    rtlalc_0 (5) <= GUARDED lfsr_state(6);
+  END BLOCK label6;
+  label7 : BLOCK ((NOT((clk'STABLE)) AND clk) = '1')
+  BEGIN
+    rtlalc_0 (6) <= GUARDED lfsr_state(7);
+  END BLOCK label7;
+  label8 : BLOCK ((NOT((clk'STABLE)) AND clk) = '1')
+  BEGIN
+    rtlalc_0 (7) <= GUARDED xor_result;
+  END BLOCK label8;
+
+lfsr_out (0) <= rtlalc_0(0);
+
+lfsr_out (1) <= rtlalc_0(1);
+
+lfsr_out (2) <= rtlalc_0(2);
+
+lfsr_out (3) <= rtlalc_0(3);
+
+lfsr_out (4) <= rtlalc_0(4);
+
+lfsr_out (5) <= rtlalc_0(5);
+
+lfsr_out (6) <= rtlalc_0(6);
+
+lfsr_out (7) <= rtlalc_0(7);
+END;

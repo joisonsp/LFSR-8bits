@@ -1,0 +1,70 @@
+N:clk:-1:0 ps
+N:lfsr_out 0:-1:905 ps
+N:lfsr_out 1:-1:905 ps
+N:lfsr_out 2:-1:905 ps
+N:lfsr_out 3:-1:905 ps
+N:lfsr_out 4:-1:905 ps
+N:lfsr_out 5:-1:905 ps
+N:lfsr_out 6:-1:905 ps
+N:lfsr_out 7:-1:905 ps
+N:lfsr_state 0:-1:0 ps
+N:lfsr_state 1:-1:0 ps
+N:lfsr_state 2:-1:0 ps
+N:lfsr_state 3:-1:0 ps
+N:lfsr_state 4:-1:0 ps
+N:lfsr_state 5:-1:0 ps
+N:lfsr_state 6:-1:0 ps
+N:lfsr_state 7:-1:0 ps
+N:rst:-1:0 ps
+N:rtlalc_0 0:-1:505 ps
+N:rtlalc_0 1:-1:505 ps
+N:rtlalc_0 2:-1:505 ps
+N:rtlalc_0 3:-1:505 ps
+N:rtlalc_0 4:-1:505 ps
+N:rtlalc_0 5:-1:505 ps
+N:rtlalc_0 6:-1:505 ps
+N:rtlalc_0 7:-1:505 ps
+N:xor_result:-1:506 ps
+N:xr2_x1_2_sig:-1:424 ps
+N:xr2_x1_3_sig:-1:421 ps
+N:xr2_x1_sig:-1:806 ps
+B:lfsr_out_7_ins:-1:905 ps
+B:lfsr_out_6_ins:-1:905 ps
+B:lfsr_out_5_ins:-1:905 ps
+B:lfsr_out_4_ins:-1:905 ps
+B:lfsr_out_3_ins:-1:905 ps
+B:lfsr_out_2_ins:-1:905 ps
+B:lfsr_out_1_ins:-1:905 ps
+B:lfsr_out_0_ins:32:905 ps
+B:rtlalc_0_7_ins:-1:505 ps
+B:rtlalc_0_6_ins:-1:505 ps
+B:rtlalc_0_5_ins:-1:505 ps
+B:rtlalc_0_4_ins:-1:505 ps
+B:rtlalc_0_3_ins:-1:505 ps
+B:rtlalc_0_2_ins:-1:505 ps
+B:rtlalc_0_1_ins:-1:505 ps
+B:rtlalc_0_0_ins:-1:505 ps
+B:xor_result_ins:-1:506 ps
+B:xr2_x1_ins:-1:806 ps
+B:xr2_x1_3_ins:-1:421 ps
+B:xr2_x1_2_ins:-1:424 ps
+C:lfsr_out 0:32:905 ps
+C:lfsr_out 1:-1:905 ps
+C:lfsr_out 2:-1:905 ps
+C:lfsr_out 3:-1:905 ps
+C:lfsr_out 4:-1:905 ps
+C:lfsr_out 5:-1:905 ps
+C:lfsr_out 6:-1:905 ps
+C:lfsr_out 7:-1:905 ps
+C:lfsr_state 0:-1:0 ps
+C:lfsr_state 1:-1:0 ps
+C:lfsr_state 2:-1:0 ps
+C:lfsr_state 3:-1:0 ps
+C:lfsr_state 4:-1:0 ps
+C:lfsr_state 5:-1:0 ps
+C:lfsr_state 6:-1:0 ps
+C:lfsr_state 7:-1:0 ps
+C:rst:-1:0 ps
+C:clk:-1:0 ps
+P:rtlalc_0 0:rtlalc_0 0:lfsr_out_0_ins:32:424 ps
+P:lfsr_out_0_ins:lfsr_out 0:lfsr_out 0:32:424 ps

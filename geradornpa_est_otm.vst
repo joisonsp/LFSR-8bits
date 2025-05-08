@@ -1,0 +1,223 @@
+entity geradornpa_est_otm is
+   port (
+      clk        : in      bit;
+      rst        : in      bit;
+      lfsr_state : in      bit_vector(7 downto 0);
+      lfsr_out   : out     bit_vector(7 downto 0);
+      vdd        : in      bit;
+      vss        : in      bit
+ );
+end geradornpa_est_otm;
+
+architecture structural of geradornpa_est_otm is
+Component xr2_x1
+   port (
+      i0  : in      bit;
+      i1  : in      bit;
+      q   : out     bit;
+      vdd : in      bit;
+      vss : in      bit
+ );
+end component;
+
+Component sff1_x4
+   port (
+      ck  : in      bit;
+      i   : in      bit;
+      q   : out     bit;
+      vdd : in      bit;
+      vss : in      bit
+ );
+end component;
+
+Component buf_x2
+   port (
+      i   : in      bit;
+      q   : out     bit;
+      vdd : in      bit;
+      vss : in      bit
+ );
+end component;
+
+signal rtlalc_0     : bit_vector( 7 downto 0);
+signal xr2_x1_sig   : bit;
+signal xr2_x1_3_sig : bit;
+signal xr2_x1_2_sig : bit;
+signal xor_result   : bit;
+
+begin
+
+xr2_x1_2_ins : xr2_x1
+   port map (
+      i0  => lfsr_state(4),
+      i1  => lfsr_state(5),
+      q   => xr2_x1_2_sig,
+      vdd => vdd,
+      vss => vss
+   );
+
+xr2_x1_3_ins : xr2_x1
+   port map (
+      i0  => lfsr_state(3),
+      i1  => lfsr_state(7),
+      q   => xr2_x1_3_sig,
+      vdd => vdd,
+      vss => vss
+   );
+
+xr2_x1_ins : xr2_x1
+   port map (
+      i0  => xr2_x1_3_sig,
+      i1  => xr2_x1_2_sig,
+      q   => xr2_x1_sig,
+      vdd => vdd,
+      vss => vss
+   );
+
+xor_result_ins : sff1_x4
+   port map (
+      ck  => clk,
+      i   => xr2_x1_sig,
+      q   => xor_result,
+      vdd => vdd,
+      vss => vss
+   );
+
+rtlalc_0_0_ins : sff1_x4
+   port map (
+      ck  => clk,
+      i   => lfsr_state(1),
+      q   => rtlalc_0(0),
+      vdd => vdd,
+      vss => vss
+   );
+
+rtlalc_0_1_ins : sff1_x4
+   port map (
+      ck  => clk,
+      i   => lfsr_state(2),
+      q   => rtlalc_0(1),
+      vdd => vdd,
+      vss => vss
+   );
+
+rtlalc_0_2_ins : sff1_x4
+   port map (
+      ck  => clk,
+      i   => lfsr_state(3),
+      q   => rtlalc_0(2),
+      vdd => vdd,
+      vss => vss
+   );
+
+rtlalc_0_3_ins : sff1_x4
+   port map (
+      ck  => clk,
+      i   => lfsr_state(4),
+      q   => rtlalc_0(3),
+      vdd => vdd,
+      vss => vss
+   );
+
+rtlalc_0_4_ins : sff1_x4
+   port map (
+      ck  => clk,
+      i   => lfsr_state(5),
+      q   => rtlalc_0(4),
+      vdd => vdd,
+      vss => vss
+   );
+
+rtlalc_0_5_ins : sff1_x4
+   port map (
+      ck  => clk,
+      i   => lfsr_state(6),
+      q   => rtlalc_0(5),
+      vdd => vdd,
+      vss => vss
+   );
+
+rtlalc_0_6_ins : sff1_x4
+   port map (
+      ck  => clk,
+      i   => lfsr_state(7),
+      q   => rtlalc_0(6),
+      vdd => vdd,
+      vss => vss
+   );
+
+rtlalc_0_7_ins : sff1_x4
+   port map (
+      ck  => clk,
+      i   => xor_result,
+      q   => rtlalc_0(7),
+      vdd => vdd,
+      vss => vss
+   );
+
+lfsr_out_0_ins : buf_x2
+   port map (
+      i   => rtlalc_0(0),
+      q   => lfsr_out(0),
+      vdd => vdd,
+      vss => vss
+   );
+
+lfsr_out_1_ins : buf_x2
+   port map (
+      i   => rtlalc_0(1),
+      q   => lfsr_out(1),
+      vdd => vdd,
+      vss => vss
+   );
+
+lfsr_out_2_ins : buf_x2
+   port map (
+      i   => rtlalc_0(2),
+      q   => lfsr_out(2),
+      vdd => vdd,
+      vss => vss
+   );
+
+lfsr_out_3_ins : buf_x2
+   port map (
+      i   => rtlalc_0(3),
+      q   => lfsr_out(3),
+      vdd => vdd,
+      vss => vss
+   );
+
+lfsr_out_4_ins : buf_x2
+   port map (
+      i   => rtlalc_0(4),
+      q   => lfsr_out(4),
+      vdd => vdd,
+      vss => vss
+   );
+
+lfsr_out_5_ins : buf_x2
+   port map (
+      i   => rtlalc_0(5),
+      q   => lfsr_out(5),
+      vdd => vdd,
+      vss => vss
+   );
+
+lfsr_out_6_ins : buf_x2
+   port map (
+      i   => rtlalc_0(6),
+      q   => lfsr_out(6),
+      vdd => vdd,
+      vss => vss
+   );
+
+lfsr_out_7_ins : buf_x2
+   port map (
+      i   => rtlalc_0(7),
+      q   => lfsr_out(7),
+      vdd => vdd,
+      vss => vss
+   );
+
+
+end structural;
